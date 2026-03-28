@@ -1,0 +1,19 @@
+{
+  "name": "Boeing 737-800",
+  "type": "Commercial Jet",
+  "maxSpeedKts": 485,
+  "cruiseAltitudeFt": 41000,
+  "engines": [
+    { "type": "CFM56-7B", "thrustLbf": 27000 }
+  ],
+  "fuelCapacityLbs": 20360,
+  "dimensionsFt": {
+    "length": 129.5,
+    "wingspan": 117.5,
+    "height": 41.2
+  },
+  "performance": {
+    "takeoffDistanceFt": 8200,
+    "landingDistanceFt": 5900
+  }
+}
