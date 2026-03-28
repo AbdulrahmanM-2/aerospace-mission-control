@@ -11,7 +11,37 @@ import ControlPanel from '@/components/cockpit/ControlPanel'
 import { useFlightData } from '@/hooks/useFlightData'
 import { useTelemetry } from '@/hooks/useTelemetry'
 import { useSystemHealth } from '@/hooks/useSystemHealth'
+import { useEffect, useState } from 'react';
+import { loadAircraft } from '../lib/simulation/aircraft_models';
 
+export default function AircraftPanel({ aircraft }) {
+  const [data, setData] = useState(null);
+
+  useEffect(() => {
+    loadAircraft(aircraft).then(setData);
+  }, [aircraft]);
+
+  if (!data) return <div>Loading aircraft data...</div>;
+
+  return (
+    <div className="aircraft-panel">
+      <h2>{data.name}</h2>
+      <p>Type: {data.type}</p>
+      <p>Max Speed: {data.maxSpeedKts} knots</p>
+      <p>Cruise Altitude: {data.cruiseAltitudeFt} ft</p>
+      <h3>Engines:</h3>
+      <ul>
+        {data.engines.map((e, idx) => (
+          <li key={idx}>{e.type} ({e.thrustLbf} lbf)</li>
+        ))}
+      </ul>
+    </div>
+  );
+    }
+export const loadAircraft = async (fileName) => {
+  const data = await import(`../aircrafts_models/${fileName}.json`);
+  return data.default;
+};
 export default function CockpitPage() {
   const { flightData } = useFlightData()
   const { telemetry, connected } = useTelemetry()
