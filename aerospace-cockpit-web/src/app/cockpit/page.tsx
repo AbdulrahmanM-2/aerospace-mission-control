@@ -12,7 +12,7 @@ import { useFlightData } from '@/hooks/useFlightData'
 import { useTelemetry } from '@/hooks/useTelemetry'
 import { useSystemHealth } from '@/hooks/useSystemHealth'
 import { useEffect, useState } from 'react';
-import { loadAircraft } from '../lib/simulation/aircraft_models';
+import { loadAircraft } from '../lib/simulation/aircraft_models/boeing737.json';
 
 export default function AircraftPanel({ aircraft }) {
   const [data, setData] = useState(null);
