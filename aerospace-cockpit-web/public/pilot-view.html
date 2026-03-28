@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>AeroSys Pilot View</title>
+  <link rel="stylesheet" href="/pilot.css" />
+</head>
+<body>
+
+<div id="pilot-container">
+
+  <img id="bg" src="/pilot.jpg" />
+
+  <div id="glitch-layer"></div>
+
+  <div id="hud">
+
+    <div class="top-bar">
+      <span>AEROSYS 9000</span>
+      <span id="status">STATUS: NOMINAL</span>
+    </div>
+
+    <div class="left-panel">
+      <div>ALT: <span id="alt">--</span></div>
+      <div>SPD: <span id="spd">--</span></div>
+      <div>HDG: <span id="hdg">--</span></div>
+    </div>
+
+    <div class="center-panel">
+      <div id="attitude">ATT: 0°</div>
+      <div id="vsi">VSI: 0</div>
+      <div id="phase">PHASE: --</div>
+    </div>
+
+    <div class="right-panel">
+      <div>LINK: <span id="link">--</span></div>
+      <div>CPU: <span id="cpu">--</span></div>
+      <div>BUS: <span id="bus">--</span></div>
+    </div>
+
+    <div class="bottom-bar">
+      <span id="alert">INITIALIZING...</span>
+    </div>
+
+  </div>
+</div>
+
+<script src="/pilot.js"></script>
+</body>
+</html>
